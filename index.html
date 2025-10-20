@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables y Tipos de Datos - Python</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            color: #667eea;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2 .icon {
+            font-size: 1.5rem;
+        }
+        
+        .concept-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .code-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .comment {
+            color: #81e6d9;
+            font-style: italic;
+        }
+        
+        .keyword {
+            color: #feb2b2;
+        }
+        
+        .string {
+            color: #68d391;
+        }
+        
+        .function {
+            color: #90cdf4;
+        }
+        
+        .number {
+            color: #faf089;
+        }
+        
+        .analogy {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .tip {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .warning {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .visual-guide {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .data-type-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #667eea;
+        }
+        
+        .data-type-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .interactive-demo {
+            background: #e6fffa;
+            border: 2px solid #38b2ac;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .exercise {
+            background: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐍 Variables y Tipos de Datos en Python</h1>
+            <div class="subtitle">Fundamentos Esenciales de Programación</div>
+        </header>
+
+        <!-- SECCIÓN 1: ¿QUÉ SON LAS VARIABLES? -->
+        <div class="section">
+            <h2><span class="icon">📦</span> 1. ¿Qué son las Variables?</h2>
+            
+            <div class="analogy">
+                <strong>💡 ANALOGÍA:</strong> Una variable es como una <strong>CAJA</strong> donde guardas cosas. 
+                Tiene un <strong>NOMBRE</strong> (etiqueta) y contiene un <strong>VALOR</strong> (lo que guardas dentro).
+            </div>
+            
+            <div class="concept-box">
+                <h3>Definición Técnica:</h3>
+                <p>Una variable es un <strong>espacio en la memoria</strong> de la computadora donde almacenamos datos. 
+                Cada variable tiene un <strong>nombre</strong> y un <strong>valor</strong>.</p>
+            </div>
+            
+            <div class="code-example">
+                <span class="comment"># Crear variables es como poner etiquetas a cajas</span><br>
+                <span class="comment"># 📦 nombre = "Ana"</span><br>
+                <span class="comment"># 📦 edad = 15</span><br>
+                <span class="comment"># 📦 altura = 1.65</span><br><br>
+                
+                nombre = <span class="string">"Ana"</span><br>
+                edad = <span class="number">15</span><br>
+                altura = <span class="number">1.65</span><br>
+                es_estudiante = <span class="keyword">True</span><br><br>
+                
+                <span class="function">print</span>(<span class="string">"Nombre:"</span>, nombre)<br>
+                <span class="function">print</span>(<span class="string">"Edad:"</span>, edad)<br>
+                <span class="function">print</span>(<span class="string">"Altura:"</span>, altura)
+            </div>
+            
+            <div class="tip">
+                <strong>✨ REGLAS PARA NOMBRAR VARIABLES:</strong><br>
+                1. Pueden contener letras, números y _ (guión bajo)<br>
+                2. NO pueden empezar con número<br>
+                3. NO pueden tener espacios<br>
+                4. Python diferencia entre MAYÚSCULAS y minúsculas
+            </div>
+            
+            <div class="code-example">
+                <span class="comment"># ✅ NOMBRES VÁLIDOS:</span><br>
+                nombre = <span class="string">"Luis"</span><br>
+                edad_persona = <span class="number">20</span><br>
+                _temp = <span class="number">25.5</span><br>
+                nombreCompleto = <span class="string">"Ana García"</span><br><br>
+                
+                <span class="comment"># ❌ NOMBRES INVÁLIDOS:</span><br>
+                <span class="comment"># 1edad = 15        (empieza con número)</span><br>
+                <span class="comment"># edad persona = 20 (tiene espacio)</span><br>
+                <span class="comment"># nombre-completo = "Ana" (tiene guión)</span>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: TIPOS DE DATOS FUNDAMENTALES -->
+        <div class="section">
+            <h2><span class="icon">🎯</span> 2. Tipos de Datos en Python</h2>
+            
+            <div class="analogy">
+                <strong>💡 ANALOGÍA:</strong> Así como en la vida tenemos diferentes tipos de contenedores 
+                (botellas para líquidos, cajas para sólidos), en programación tenemos diferentes tipos de datos.
+            </div>
+            
+            <div class="visual-guide">
+                <div class="data-type-card">
+                    <div class="data-type-icon">🔤</div>
+                    <h3>str (String)</h3>
+                    <p>Texto</p>
+                </div>
+                <div class="data-type-card">
+                    <div class="data-type-icon">🔢</div>
+                    <h3>int (Integer)</h3>
+                    <p>Números enteros</p>
+                </div>
+                <div class="data-type-card">
+                    <div class="data-type-icon">📊</div>
+                    <h3>float</h3>
+                    <p>Números decimales</p>
+                </div>
+                <div class="data-type-card">
+                    <div class="data-type-icon">✅</div>
+                    <h3>bool (Boolean)</h3>
+                    <p>Verdadero/Falso</p>
+                </div>
+            </div>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Descripción</th>
+                        <th>Ejemplo</th>
+                        <th>Uso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>str</strong></td>
+                        <td>Texto (cadena de caracteres)</td>
+                        <td>"Hola", 'Python'</td>
+                        <td>Nombres, mensajes, direcciones</td>
+                    </tr>
+                    <tr>
+                        <td><strong>int</strong></td>
+                        <td>Número entero (sin decimales)</td>
+                        <td>15, -3, 0, 1000</td>
+                        <td>Edades, contadores, años</td>
+                    </tr>
+                    <tr>
+                        <td><strong>float</strong></td>
+                        <td>Número decimal</td>
+                        <td>3.14, -2.5, 0.0</td>
+                        <td>Promedios, medidas, precios</td>
+                    </tr>
+                    <tr>
+                        <td><strong>bool</strong></td>
+                        <td>Valor lógico (Verdadero/Falso)</td>
+                        <td>True, False</td>
+                        <td>Condiciones, interruptores</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECCIÓN 3: STRINGS (TEXTO) -->
+        <div class="section">
+            <h2><span class="icon">🔤</span> 3. Strings - Trabajando con Texto</h2>
+            
+            <div class="concept-box">
+                <h3>¿Qué es un String?</h3>
+                <p>Un string es una <strong>secuencia de caracteres</strong> (letras, números, símbolos) 
+                entre comillas simples (' ') o dobles (" ").</p>
+            </div>
+            
+            <div class="code-example">
+                <span class="comment"># Diferentes formas de crear strings</span><br>
+                nombre = <span class="string">"María"</span><br>
+                apellido = <span class="string">'García'</span><br>
+                mensaje = <span class="string">"Hola, ¿cómo estás?"</span><br>
+                direccion = <span class="string">'Calle 123 #45-67'</span><br><br>
+                
+                <span class="comment"># Strings con comillas dentro</span><br>
+                frase1 = <span class="string">"El dijo 'Hola'"</span><br>
+                frase2 = <span class="string">'Ella dijo "Adiós"'</span><br><br>
+                
+                <span class="function">print</span>(nombre)<br>
+                <span class="function">print</span>(mensaje)<br>
+                <span class="function">print</span>(frase1)
+            </div>
+            
+            <div class="interactive-demo">
+                <h3>🧩 Operaciones con Strings</h3>
+                <div class="code-example">
+                    <span class="comment"># Concatenar (unir) strings</span><br>
+                    nombre_completo = <span class="string">"Ana"</span> + <span class="string">" "</span> + <span class="string">"García"</span><br>
+                    <span class="function">print</span>(<span class="string">"Nombre completo:"</span>, nombre_completo)<br><br>
+                    
+                    <span class="comment"># Repetir strings</span><br>
+                    risa = <span class="string">"ja"</span> * <span class="number">3</span><br>
+                    <span class="function">print</span>(<span class="string">"Risa:"</span>, risa)<br><br>
+                    
+                    <span class="comment"># f-strings (formato moderno)</span><br>
+                    edad = <span class="number">15</span><br>
+                    mensaje = <span class="string">f"Hola {nombre}, tienes {edad} años"</span><br>
+                    <span class="function">print</span>(mensaje)
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 4: NÚMEROS (int y float) -->
+        <div class="section">
+            <h2><span class="icon">🔢</span> 4. Números - int y float</h2>
+            
+            <div class="concept-box">
+                <h3>Diferencia entre int y float</h3>
+                <p><strong>int</strong> = números enteros (sin punto decimal)<br>
+                <strong>float</strong> = números con punto decimal</p>
+            </div>
+            
+            <div class="code-example">
+                <span class="comment"># Números enteros (int)</span><br>
+                edad = <span class="number">15</span><br>
+                año_actual = <span class="number">2024</span><br>
+                temperatura = <span class="number">-5</span><br>
+                cantidad_estudiantes = <span class="number">30</span><br><br>
+                
+                <span class="comment"># Números decimales (float)</span><br>
+                altura = <span class="number">1.65</span><br>
+                peso = <span class="number">55.5</span><br>
+                promedio = <span class="number">8.75</span><br>
+                pi = <span class="number">3.14159</span><br><br>
+                
+                <span class="function">print</span>(<span class="string">"Tipo de edad:"</span>, <span class="function">type</span>(edad))<br>
+                <span class="function">print</span>(<span class="string">"Tipo de altura:"</span>, <span class="function">type</span>(altura))
+            </div>
+            
+            <div class="interactive-demo">
+                <h3>🧮 Operaciones Matemáticas Básicas</h3>
+                <div class="code-example">
+                    <span class="comment"># Operaciones básicas</span><br>
+                    a = <span class="number">10</span><br>
+                    b = <span class="number">3</span><br><br>
+                    
+                    suma = a + b<br>
+                    resta = a - b<br>
+                    multiplicacion = a * b<br>
+                    division = a / b<br>
+                    division_entera = a // b<br>
+                    resto = a % b<br>
+                    potencia = a ** b<br><br>
+                    
+                    <span class="function">print</span>(<span class="string">"Suma:"</span>, suma)<br>
+                    <span class="function">print</span>(<span class="string">"Resta:"</span>, resta)<br>
+                    <span class="function">print</span>(<span class="string">"Multiplicación:"</span>, multiplicacion)<br>
+                    <span class="function">print</span>(<span class="string">"División:"</span>, division)<br>
+                    <span class="function">print</span>(<span class="string">"División entera:"</span>, division_entera)<br>
+                    <span class="function">print</span>(<span class="string">"Resto:"</span>, resto)<br>
+                    <span class="function">print</span>(<span class="string">"Potencia:"</span>, potencia)
+                </div>
+            </div>
+            
+            <div class="warning">
+                <strong>⚠️ IMPORTANTE:</strong> La división (/) SIEMPRE devuelve un float, 
+                incluso si el resultado es un número entero.
+            </div>
+        </div>
+
+        <!-- SECCIÓN 5: BOOLEANOS (bool) -->
+        <div class="section">
+            <h2><span class="icon">✅</span> 5. Booleanos - Verdadero o Falso</h2>
+            
+            <div class="analogy">
+                <strong>💡 ANALOGÍA:</strong> Un booleano es como un <strong>interruptor de luz</strong> - 
+                solo tiene dos estados: ENCENDIDO (True) o APAGADO (False).
+            </div>
+            
+            <div class="code-example">
+                <span class="comment"># Valores booleanos</span><br>
+                es_estudiante = <span class="keyword">True</span><br>
+                tiene_carro = <span class="keyword">False</span><br>
+                mayor_de_edad = <span class="keyword">False</span><br>
+                esta_lloviendo = <span class="keyword">True</span><br><br>
+                
+                <span class="function">print</span>(<span class="string">"¿Es estudiante?"</span>, es_estudiante)<br>
+                <span class="function">print</span>(<span class="string">"¿Tiene carro?"</span>, tiene_carro)<br>
+                <span class="function">print</span>(<span class="string">"Tipo de es_estudiante:"</span>, <span class="function">type</span>(es_estudiante))
+            </div>
+            
+            <div class="interactive-demo">
+                <h3>🔍 Expresiones que Devuelven Booleanos</h3>
+                <div class="code-example">
+                    <span class="comment"># Comparaciones que devuelven True o False</span><br>
+                    edad = <span class="number">15</span><br>
+                    nota = <span class="number">8.5</span><br><br>
+                    
+                    <span class="function">print</span>(<span class="string">"¿Mayor de edad?"</span>, edad >= <span class="number">18</span>)<br>
+                    <span class="function">print</span>(<span class="string">"¿Aprobado?"</span>, nota >= <span class="number">6.0</span>)<br>
+                    <span class="function">print</span>(<span class="string">"¿Edad igual a 15?"</span>, edad == <span class="number">15</span>)<br>
+                    <span class="function">print</span>(<span class="string">"¿Edad diferente de 20?"</span>, edad != <span class="number">20</span>)
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 6: DETECCIÓN Y CONVERSIÓN DE TIPOS -->
+        <div class="section">
+            <h2><span class="icon">🔄</span> 6. Conversión entre Tipos de Datos</h2>
+            
+            <div class="concept-box">
+                <h3>¿Por qué necesitamos convertir tipos?</h3>
+                <p>A veces necesitamos cambiar un dato de un tipo a otro para poder operar con él.</p>
+            </div>
+            
+            <div class="code-example">
+                <span class="comment"># Función type() - para saber el tipo de dato</span><br>
+                numero = <span class="number">15</span><br>
+                texto = <span class="string">"25"</span><br>
+                decimal = <span class="number">3.14</span><br><br>
+                
+                <span class="function">print</span>(<span class="string">"Tipo de numero:"</span>, <span class="function">type</span>(numero))<br>
+                <span class="function">print</span>(<span class="string">"Tipo de texto:"</span>, <span class="function">type</span>(texto))<br>
+                <span class="function">print</span>(<span class="string">"Tipo de decimal:"</span>, <span class="function">type</span>(decimal))<br><br>
+                
+                <span class="comment"># Conversiones entre tipos</span><br>
+                texto_a_numero = <span class="function">int</span>(texto)<br>
+                numero_a_texto = <span class="function">str</span>(numero)<br>
+                decimal_a_entero = <span class="function">int</span>(decimal)<br>
+                entero_a_decimal = <span class="function">float</span>(numero)<br><br>
+                
+                <span class="function">print</span>(<span class="string">"Texto a número:"</span>, texto_a_numero, <span class="function">type</span>(texto_a_numero))<br>
+                <span class="function">print</span>(<span class="string">"Número a texto:"</span>, numero_a_texto, <span class="function">type</span>(numero_a_texto))<br>
+                <span class="function">print</span>(<span class="string">"Decimal a entero:"</span>, decimal_a_entero)
+            </div>
+            
+            <div class="warning">
+                <strong>⚠️ CUIDADO:</strong> No puedes convertir cualquier texto a número. 
+                Solo textos que representen números válidos.
+            </div>
+            
+            <div class="code-example">
+                <span class="comment"># ❌ Esto dará ERROR</span><br>
+                <span class="comment"># texto_invalido = "hola"</span><br>
+                <span class="comment"># numero = int(texto_invalido)  # Error!</span><br><br>
+                
+                <span class="comment"># ✅ Esto funciona</span><br>
+                texto_valido = <span class="string">"100"</span><br>
+                numero = <span class="function">int</span>(texto_valido)<br>
+                <span class="function">print</span>(<span class="string">"Número convertido:"</span>, numero)
+            </div>
+        </div>
+
+        <!-- SECCIÓN 7: EJERCICIOS PRÁCTICOS -->
+        <div class="section">
+            <h2><span class="icon">🏆</span> 7. Ejercicios de Práctica</h2>
+            
+            <div class="exercise">
+                <h3>🎯 Ejercicio 1: Perfil de Usuario</h3>
+                <p>Crea un programa que almacene en variables tu nombre, edad, altura y si eres estudiante. 
+                Luego muestra toda la información formateada.</p>
+                <div class="code-example">
+                    <span class="comment"># Tu código aquí...</span>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <h3>🎯 Ejercicio 2: Calculadora de Edad</h3>
+                <p>Pide al usuario su año de nacimiento y calcula cuántos años tendrá el próximo año.</p>
+                <div class="code-example">
+                    <span class="comment"># Pista: usa input() y int()</span>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <h3>🎯 Ejercicio 3: Verificador de Notas</h3>
+                <p>Crea un programa que pida una nota y diga si está aprobado (>= 6.0) o reprobado.</p>
+                <div class="code-example">
+                    <span class="comment"># Pista: usa float() y comparaciones</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 8: RESUMEN -->
+        <div class="section">
+            <h2><span class="icon">📚</span> 8. Resumen - Lo Esencial</h2>
+            
+            <div class="concept-box">
+                <h3>✨ Puntos Clave para Recordar:</h3>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>📦 <strong>Variables</strong> son como cajas con nombre que guardan datos</li>
+                    <li>🔤 <strong>str</strong> = texto entre comillas</li>
+                    <li>🔢 <strong>int</strong> = números enteros</li>
+                    <li>📊 <strong>float</strong> = números decimales</li>
+                    <li>✅ <strong>bool</strong> = True o False</li>
+                    <li>🔄 Usa <strong>type()</strong> para ver el tipo de dato</li>
+                    <li>🔧 Convierte tipos con <strong>int(), float(), str()</strong></li>
+                </ul>
+            </div>
+            
+            <div class="tip">
+                <strong>💫 CONSEJO FINAL:</strong> La práctica hace al maestro. 
+                Experimenta creando diferentes variables y observa cómo se comportan.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
